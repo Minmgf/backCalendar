@@ -6,8 +6,6 @@ const  mongoose = require("mongoose")
 
 require("dotenv").config({})
 const app = express()
-
-app.listen(3000, ()=> console.log("server started"))
 app.use(express.json())
 app.use(morgan("dev"))
 app.use(cors())
@@ -17,7 +15,7 @@ app.use(routes)
 
 
 app.get("/", (req, res)=>{
-	res.send("Servers is running... ")
+	res.send("hi")
 })
 
 

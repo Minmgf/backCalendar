@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get("/events", getAllEvents)
 router.post("/create", auth, createEvent)
-router.put("/events/:updateId", auth, updateEvent)
+router.put("/update/:updateId", auth, updateEvent)
 
 
 module.exports = router

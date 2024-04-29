@@ -1,4 +1,3 @@
-const  buildPdf = require("../libs/pdfKit.js");
 const express = require("express");
 const auth = require("../middlewares/auth");
 const User = require("../models/User");
@@ -17,21 +16,6 @@ const router = express.Router()
 router.use("/api/calendar", calendarRoute)
 router.use("/api/activities", activityRoute)
 router.use("/api/auth", authRoute)
-
-router.get("/invoice", (req, res) => {
-    const stream = res.writeHead(200, {
-        "Content-Type": "application/pdf",
-        "Content-Disposition": "attachment; filename=invoice.pdf",
-    });
-
-    buildPdf(
-        (data) => stream.write(data),
-        // () => stream.end()
-    );
-});
-
-
-
 
 
 
