@@ -20,6 +20,9 @@ app.get("/", (req, res)=>{
 
 
 app.use((err, req, res, next)=>{
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
 	let status = err?.status || 500
 	let message = "Internal Error"
 	if(typeof err === "string"){
@@ -30,6 +33,7 @@ app.use((err, req, res, next)=>{
 	res.status(status).json({
 		message: message
 	})
+	next();
 })
 
 
